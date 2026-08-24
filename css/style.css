@@ -1,0 +1,265 @@
+/* Reset et styles globaux */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* En-tête */
+header {
+    background-color: #fff;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.controls {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+}
+
+.controls button {
+    padding: 0.5rem 1rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.controls button:hover {
+    background-color: #2980b9;
+}
+
+#color-picker {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Carte */
+#map {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Panneaux */
+#epingle-panel, #save-panel, #info-panel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 2000;
+    max-width: 80%;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+#epingle-panel h2, #save-panel h2, #info-panel h2 {
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.panel-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.panel-buttons button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#confirm-save, #save-edit {
+    background-color: #2ecc71;
+    color: white;
+}
+
+#confirm-save:hover, #save-edit:hover {
+    background-color: #27ae60;
+}
+
+#cancel-save, #cancel-epingle, #close-info {
+    background-color: #95a5a6;
+    color: white;
+}
+
+#cancel-save:hover, #cancel-epingle:hover, #close-info:hover {
+    background-color: #7f8c8d;
+}
+
+#delete-trajet {
+    background-color: #e74c3c;
+    color: white;
+}
+
+#delete-trajet:hover {
+    background-color: #c0392b;
+}
+
+/* Barre de recherche */
+#search-container {
+    position: absolute;
+    top: 100px;
+    left: 1rem;
+    right: 1rem;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+#search-container input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+#search-results {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.search-result-item {
+    padding: 0.5rem;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+.search-result-item:hover {
+    background-color: #f0f0f0;
+}
+
+/* Épingles */
+.epingle-item {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.epingle-info {
+    flex: 1;
+}
+
+.epingle-type {
+    font-weight: bold;
+    margin-right: 0.5rem;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    color: white;
+    font-size: 0.8rem;
+}
+
+.epingle-actions {
+    display: flex;
+    gap: 0.3rem;
+}
+
+.delete-epingle {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.2rem 0.5rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.delete-epingle:hover {
+    background-color: #c0392b;
+}
+
+/* Couleurs par type d'épingle */
+.epingle-restaurant { background-color: #e74c3c; }
+.epingle-bar { background-color: #f39c12; }
+.epingle-monument { background-color: #3498db; }
+.epingle-parc { background-color: #2ecc71; }
+.epingle-magasin { background-color: #9b59b6; }
+.epingle-autre { background-color: #7f8c8d; }
+
+/* Inputs */
+input[type="text"], input[type="date"] {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+/* Classe pour cacher un élément */
+.hidden {
+    display: none !important;
+}
+
+/* Épingles sur la carte */
+.epingle-marker {
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .controls button {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    #search-container {
+        top: 120px;
+        left: 0.5rem;
+        right: 0.5rem;
+    }
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Carte de Marche</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Mon CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Ma Carte de Marche</h1>
+            <div class="controls">
+                <button id="draw-btn">Dessiner un trajet</button>
+                <button id="search-btn">Rechercher une rue</button>
+                <button id="save-btn">Sauvegarder le trajet</button>
+                <button id="add-epingle-btn">Ajouter une épingle</button>
+                <button id="export-btn">Exporter</button>
+                <button id="import-btn">Importer</button>
+                <input type="color" id="color-picker" value="#FF5733" title="Couleur du trajet">
+            </div>
+        </header>
+
+        <!-- Panneau pour ajouter une épingle -->
+        <div id="epingle-panel" class="hidden">
+            <h2>Nouvelle épingle</h2>
+            <div>
+                <label for="epingle-nom">Nom :</label>
+                <input type="text" id="epingle-nom" placeholder="Ex: Restaurant Le Bistrot">
+            </div>
+            <div>
+                <label for="epingle-type">Type :</label>
+                <select id="epingle-type">
+                    <option value="restaurant">Restaurant</option>
+                    <option value="bar">Bar</option>
+                    <option value="monument">Monument</option>
+                    <option value="parc">Parc</option>
+                    <option value="magasin">Magasin</option>
+                    <option value="autre">Autre</option>
+                </select>
+            </div>
+            <div class="panel-buttons">
+                <button id="confirm-epingle">Valider</button>
+                <button id="cancel-epingle">Annuler</button>
+            </div>
+        </div>
+
+        <!-- Barre de recherche -->
+        <div id="search-container" class="hidden">
+            <input type="text" id="street-search" placeholder="Rechercher une rue...">
+            <div id="search-results"></div>
+        </div>
+
+        <!-- Carte -->
+        <div id="map"></div>
+
+        <!-- Panneau d'info trajet -->
+        <div id="info-panel" class="hidden">
+            <h2>Détails du trajet</h2>
+            <p>Nom : <input type="text" id="edit-nom"></p>
+            <p>Date : <input type="date" id="edit-date"></p>
+            <p id="trajet-distance"></p>
+            <div id="trajet-epingles"></div>
+            <div class="panel-buttons">
+                <button id="save-edit">Enregistrer</button>
+                <button id="delete-trajet">Supprimer</button>
+                <button id="close-info">Fermer</button>
+            </div>
+        </div>
+
+        <!-- Panneau de sauvegarde trajet -->
+        <div id="save-panel" class="hidden">
+            <h2>Sauvegarder le trajet</h2>
+            <input type="text" id="trajet-nom-input" placeholder="Nom du trajet">
+            <div class="panel-buttons">
+                <button id="confirm-save">Confirmer</button>
+                <button id="cancel-save">Annuler</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Mes scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
